@@ -84,17 +84,6 @@ var copyFolderRecursiveSync = function(source, target) {
   }
 };
 
-function getCordovaParameter(variableName, contents) {
-  var variable;
-  if(process.argv.join("|").indexOf(variableName + "=") > -1) {
-    var re = new RegExp(variableName + '=(.*?)(\||$))', 'g');
-    variable = process.argv.join("|").match(re)[1];
-  } else {
-    variable = getPreferenceValue(contents, variableName);
-  }
-  return variable;
-}
-
 module.exports = function(context) {
   var deferral = new Q.defer();
   var contents = fs.readFileSync(

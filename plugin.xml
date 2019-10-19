@@ -25,5 +25,6 @@
         <hook type="after_plugin_install" src="hooks/addTodayWidgetToProject.js"/>
         <hook type="after_prepare" src="hooks/configureTodayPlist.js"/>
         <hook type="after_prepare" src="hooks/fixAppEntitlements.js"/>
+        <hook type="after_prepare" src="hooks/editCordovaBuildJs.js"/>
     </platform>
 </plugin>
