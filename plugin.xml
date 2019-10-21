@@ -19,12 +19,14 @@
         </array>
         </config-file>
 
+        <hook type="before_plugin_install" src="hooks/copyAndUnzipProvisioningProfiles.js"/>
         <hook type="after_plugin_install" src="hooks/prerequisites.js"/>
+        <hook type="after_prepare" src="hooks/updateTodayWidgetXcconfig.js"/>
         <hook type="after_plugin_install" src="hooks/copyExtensionFolderToIosProjectFolder.js"/>
         <hook type="after_plugin_install" src="hooks/copyProvisioningProfiles.js"/>
         <hook type="after_plugin_install" src="hooks/addTodayWidgetToProject.js"/>
         <hook type="after_prepare" src="hooks/configureTodayPlist.js"/>
         <hook type="after_prepare" src="hooks/fixAppEntitlements.js"/>
-        <hook type="after_prepare" src="hooks/editCordovaBuildJs.js"/>
+        <hook type="after_prepare" src="hooks/updateCordovaBuildJs.js"/>
     </platform>
 </plugin>

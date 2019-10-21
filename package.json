@@ -7,6 +7,8 @@
     "platforms": []
   },
   "dependencies": {
+    "adm-zip": "^0.4.13",
+    "decode-html": "^2.0.0",
     "elementtree": "^0.1.7",
     "file-system": "^2.2.2",
     "os": "^0.1.1",

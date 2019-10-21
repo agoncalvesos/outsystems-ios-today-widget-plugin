@@ -2,27 +2,8 @@ var fs = require('fs');
 var path = require('path');
 var plist = require('plist');
 var Config = require("./config");
+var { getCordovaParameter } = require('./utils')
 
-function getCordovaParameter(variableName, contents) {
-
-    var variable;
-    if(process.argv.join("|").indexOf(variableName + "=") > -1) {
-      var re = new RegExp(variableName + '=(.*?)(\||$))', 'g');
-      variable = process.argv.join("|").match(re)[1];
-    } else {
-      variable = getPreferenceValue(contents, variableName);
-    }
-    return variable;
-}
-
-function getPreferenceValue (config, name) {
-    var value = config.match(new RegExp('name="' + name + '" value="(.*?)"', "i"));
-    if(value && value[1]) {
-      return value[1];
-    } else {
-      return null;
-    }
-  }
   
 module.exports = function (context) {
 
@@ -36,7 +17,7 @@ module.exports = function (context) {
     : path.join(context.opts.projectRoot, 'platforms/ios/');
 
     var widgetName = Config.WIDGET_NAME;
-    var todayPlistPath = path.join(iosFolder, "CordovaToday", widgetName + '-Info.plist');
+    var todayPlistPath = path.join(iosFolder, widgetName, widgetName + '-Info.plist');
 
     var xml = fs.readFileSync(todayPlistPath, 'utf8');
     var obj = plist.parse(xml);

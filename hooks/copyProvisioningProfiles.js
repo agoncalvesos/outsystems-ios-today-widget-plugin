@@ -3,34 +3,8 @@
 var fs = require('fs');
 var path = require('path');
 var Q = require('q');
+var {log} = require('./utils')
 
-function log(logString, type) {
-  var prefix;
-  var postfix = '';
-  switch (type) {
-    case 'error':
-      prefix = '\x1b[1m' + '\x1b[31m' + '💥 😨 '; // bold, red
-      throw new Error(prefix + logString + 'x1b[0m'); // reset
-    case 'info':
-      prefix =
-        '\x1b[40m' +
-        '\x1b[37m' +
-        '\x1b[2m' +
-        '☝️ [INFO] ' +
-        '\x1b[0m\x1b[40m' +
-        '\x1b[33m'; // fgWhite, dim, reset, bgBlack, fgYellow
-      break;
-    case 'start':
-      prefix = '\x1b[40m' + '\x1b[36m'; // bgBlack, fgCyan
-      break;
-    case 'success':
-      prefix = '\x1b[40m' + '\x1b[32m' + '✔ '; // bgBlack, fgGreen
-      postfix = ' 🦄  🎉  🤘';
-      break;
-  }
-
-  console.log(prefix + logString + postfix);
-}
 
 console.log('\x1b[40m');
 log(
