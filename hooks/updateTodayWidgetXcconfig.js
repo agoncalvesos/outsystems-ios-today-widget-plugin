@@ -25,7 +25,8 @@ module.exports = function(context) {
         'utf-8'
     );
 
-    var ppObject = JSON.parse(decode(getCordovaParameter("PROVISIONING_PROFILES",contents)));
+    var ppDecoded = decode(getCordovaParameter("PROVISIONING_PROFILES",contents));
+    var ppObject = JSON.parse(ppDecoded.replace(/'/g, "\""));
 
     //we don't iterate the provisioning profiles here because we don't know  
     //yet how to add multiple provisioning profile info to the same xcconfig. 

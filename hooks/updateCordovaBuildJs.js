@@ -30,7 +30,8 @@ module.exports = function(context) {
         'utf-8'
     );
 
-    var ppObject = JSON.parse(decode(getCordovaParameter("PROVISIONING_PROFILES",contents)));
+    var ppDecoded = decode(getCordovaParameter("PROVISIONING_PROFILES",contents));
+    var ppObject = JSON.parse(ppDecoded.replace(/'/g, "\""));
     var ppString = "";
     
     //we iterate here so we can add multiple provisioning profiles to, in the future, add provisioning profiles for other extensions
