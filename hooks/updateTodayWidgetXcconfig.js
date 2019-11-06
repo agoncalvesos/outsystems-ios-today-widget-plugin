@@ -34,9 +34,10 @@ module.exports = function(context) {
     var key = Object.keys(ppObject)[0];
     var value = ppObject[key];
 
-    var xcConfigNewContents = 'PRODUCT_BUNDLE_IDENTIFIER='+key+'\n'
-                            + 'PROVISIONING_PROFILE='+value+'\n'
-                            + 'DEVELOPMENT_TEAM='+getCordovaParameter("DEVELOPMENT_TEAM",contents)
+    var xcConfigNewContents = 'PRODUCT_BUNDLE_IDENTIFIER=' + key + '\n'
+                            + 'PROVISIONING_PROFILE=' + value + '\n'
+                            + 'DEVELOPMENT_TEAM=' + getCordovaParameter("DEVELOPMENT_TEAM",contents) + "\n"
+                            + 'PRODUCT_DISPLAY_NAME=' + getCordovaParameter("WIDGET_TITLE",contents)
 
     
     fs.appendFileSync(xcConfigPath, xcConfigNewContents);
