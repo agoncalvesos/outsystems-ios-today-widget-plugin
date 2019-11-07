@@ -1,6 +1,6 @@
 # Cordova Plugin for adding a Today Widget to an existing OutSystems Project dynamically
 
-This plugin allows any OutSystems Mobile application to have a TodayExtesion on iOS. It extends the existing xcode project by parsing and modifying the project.pbxproj file (and others) using [cordova-node-xcode](https://github.com/apache/cordova-node-xcode).
+This plugin allows any OutSystems Mobile application to have a TodayExtension on iOS. It extends the existing xcode project by parsing and modifying the project.pbxproj file (and others) using [cordova-node-xcode](https://github.com/apache/cordova-node-xcode).
 It uses a webview, inside the native extension, that uses the WEBVIEW_URL passed as an input parameter.
 This plugin was based on the excelent work of Triggi. The original work can be found here https://github.com/Triggi/cordova-plugin-today-widget.git
 
@@ -26,7 +26,7 @@ This plugin was based on the excelent work of Triggi. The original work can be f
 
 | Variable | Example | Description |
 |-|-|-|
-|WEBVIEW_URL| https://outsystems.com | URL to be opened in the extension webview |
+|WEBVIEW_URL| https://outsystems.com | URL to be opened in the extension webview. Refer to the TodayExtensionWebview on the forge |
 |PRODUCT_BUNDLE_IDENTIFIER| com.company.app | Bundle ID of the main app |
 |PROVISIONING_PROFILES| "{'com.outsystems.experts.todaysample.extension':'bce89fc6-7c62-4202-a305-2f9b59b219ef'}" | JSON dictionary of extension bundleId and provisioning profile UUID |
 |DEVELOPMENT_TEAM| EVSDF8DD | The team ID present in the provisioning profiles |
@@ -40,6 +40,9 @@ This plugin was based on the excelent work of Triggi. The original work can be f
     2. Rename the provisioning profile to <uuid>.mobileprovision
     3. Zip the file and rename the zip to provisioning-profiles.zip
     4. Add the zip file to the TodayExtensionPlugin as a resource file and change the Deploy Action to "Deploy to Target Directory"
+
+### 4. Reference the TodayExtesionPlugin in your application
+* This is the last step to have this component working on your application. Just reference the TodayExtensionPlugin in your app and call the CheckTodayExtensionPlugin action. 
 
 ## Troubleshooting
 While using this component you might run into some issues. Please check the build log available in Service Center to have more details of the error. If you can't find the issue in the log, this troubleshoot might help:
