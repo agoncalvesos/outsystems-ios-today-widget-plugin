@@ -37,9 +37,9 @@ This plugin was based on the excelent work of Triggi. The original work can be f
 * After having the provisioning profiles created and configured we need to add the extension provisioning profile as a resource of our application. To do that:
 
     1. Open the extension provisioning profile in a text edit and copy the uuid. 
-    2. Rename the provisioning profile to <uuid>.mobileprovision
+    2. Rename the provisioning profile to `<uuid>.mobileprovision`
     3. Zip the file and rename the zip to provisioning-profiles.zip
-    4. Add the zip file to the TodayExtensionPlugin as a resource file and change the Deploy Action to "Deploy to Target Directory"
+    4. Add the zip file to the TodayExtensionPlugin as a resource file and change the Deploy Action to "Deploy to Target Directory" and make sure that "Target Directory" is set to provisioning-profiles
 
 ### 4. Reference the TodayExtesionPlugin in your application
 * This is the last step to have this component working on your application. Just reference the TodayExtensionPlugin in your app and call the CheckTodayExtensionPlugin action. 
