@@ -85,12 +85,24 @@ module.exports = function(context) {
       );
     }
 
-    var targetFolder = path.join(
+    /*var targetFolder = path.join(
       '/Users',
       require("os").userInfo().username,
       'Library/MobileDevice/Provisioning Profiles'
     )
+    console.log("target folder", targetFolder);*/
+    
+    var targetFolder = path.join(
+      require("os").homedir(),
+      'Library/MobileDevice/Provisioning Profiles'
+    )
     console.log("target folder", targetFolder);
+    if (!fs.existsSync(targetFolder)){
+      console.log(`Creating dir ${targetFolder}`);
+        fs.mkdirSync(targetFolder);
+    }else{
+      console.log(`Dir ${targetFolder} already exists`);
+    }
     // Copy provisioning profiles
     copyFolderRecursiveSync(
       srcFolder,
